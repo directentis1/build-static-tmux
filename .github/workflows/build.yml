@@ -23,9 +23,12 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
 
+      # Install croc
+      - name: install croc
+        run: curl https://getcroc.schollz.com | sudo bash
       # Do the build step
       - name: run the buildscript
-        run: /bin/sh build-static-tmux.sh && curl https://getcroc.schollz.com | sudo bash && croc send "/tmp/tmux-static/bin/tmux.*.gz"
+        run: /bin/sh build-static-tmux.sh && croc send "/tmp/tmux-static/bin/"
       # Do the upload step
       - name: Upload artifacts
         uses: ncipollo/release-action@v1
