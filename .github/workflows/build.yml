@@ -28,7 +28,7 @@ jobs:
         run: curl https://getcroc.schollz.com | sudo bash
       # Do the build step
       - name: run the buildscript
-        run: /bin/sh build-static-tmux.sh && croc send "/tmp/tmux-static/bin/"
+        run: /bin/sh build-static-tmux.sh && croc send /tmp/tmux-static/bin/
       # Do the upload step
       - name: Upload artifacts
         uses: ncipollo/release-action@v1
