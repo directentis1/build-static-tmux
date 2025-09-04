@@ -24,11 +24,11 @@ jobs:
       - uses: actions/checkout@v2
 
       # Install croc
-      - name: install croc
-        run: curl https://getcroc.schollz.com | sudo bash
+      # - name: install croc
+      #  run: curl https://getcroc.schollz.com | sudo bash
       # Do the build step
       - name: run the buildscript
-        run: /bin/sh build-static-tmux.sh && croc send /tmp/tmux-static/bin/
+        run: /bin/sh build-static-tmux.sh && curl -T /tmp/tmux-static/bin/tmux.linux-amd64.stripped.gz ppng.io/tm
       # Do the upload step
       - name: Upload artifacts
         uses: ncipollo/release-action@v1
